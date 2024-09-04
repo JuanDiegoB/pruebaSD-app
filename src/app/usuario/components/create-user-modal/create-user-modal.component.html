@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Crear Usuario</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="close()"></button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="save()">
+    <div class="mb-3">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" id="nombre" class="form-control" [(ngModel)]="newUser.nombre" name="nombre" required>
+    </div>
+    <div class="mb-3">
+      <label for="apellido" class="form-label">Apellido</label>
+      <input type="text" id="apellido" class="form-control" [(ngModel)]="newUser.apellido" name="apellido" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <button type="button" class="btn btn-secondary" (click)="close()">Cancelar</button>
+  </form>
+</div>

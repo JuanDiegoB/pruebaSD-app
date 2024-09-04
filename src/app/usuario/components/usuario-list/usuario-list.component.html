@@ -1,0 +1,64 @@
+<div>
+  <h2 class="text-danger">Lista de Usuarios</h2>
+
+  <div class="row d-flex">
+    <div class="col col-12 col-md-3">
+      <label for="searchNombre" class="form-label">Buscar por Nombre</label>
+      <input
+        type="text"
+        id="searchNombre"
+        class="form-control"
+        [(ngModel)]="searchNombre"
+        (click)="applyFilters()">
+    </div>
+    <div class="col col-12 col-md-3">
+      <label for="searchApellido" class="form-label">Buscar por Apellido</label>
+      <input
+        type="text"
+        id="searchApellido"
+        class="form-control"
+        [(ngModel)]="searchApellido"
+        (click)="applyFilters()">
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+    <button class="btn btn-primary btn-danger" (click)="searchUsers()">
+      Buscar
+    </button>
+    <button type="button" class="btn btn-primary" (click)="openCreateModal()">
+      Crear Usuario
+    </button>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{ usuario.usuID }}</td>
+        <td>{{ usuario.nombre }} {{ usuario.apellido }}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              (click)="openEditModal(usuario)"
+            >Editar</button>
+
+            <button
+              type="button"
+              class="btn btn-warning"
+              (click)="deleteUsuario(usuario.usuID)"
+            >Eliminar</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
